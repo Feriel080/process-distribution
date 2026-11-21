@@ -33,13 +33,13 @@ def solution_initiale(nP, nT):
     """
     return [random.randrange(nP) for _ in range(nT)]
 
-def realizable_solution(nT, nP, S):
-    """Vérifier si la solution respecte les contraintes ou non.
+def realizable_solution(nT, S):
+    """Vérifier si la solution respecte les contraintes ou non.\n
     
     Les contrainte:
-        * Chaque tâche est exécutée sur un seul processeur. (toujours vérifié, car contrôlé par les indices.)
-        * Chaque processeur peut exécuter une ou plusieurs tâches.
-        * Toutes les tâches et tous les processeurs sont présents.
+        * Chaque tâche est exécutée sur un seul processeur (toujours vérifié, car contrôlé par les indices).
+        * Chaque processeur peut exécuter zéro ou plusieurs tâches.
+        * Toutes les tâches sont présentes.
 
     Args:
         nP (int): Nombre de processeurs.
@@ -52,9 +52,6 @@ def realizable_solution(nT, nP, S):
     if nT != len(S):
         return False
     
-    if nP != max(S) + 1:
-        return False
-        
     return True
 
 def charge_processeurs(S, D):
@@ -79,3 +76,59 @@ def charge_processeurs(S, D):
         
     makespan = max(C)
     return makespan
+
+def voisin_move(S, nP):
+    """Réaffectation des tâches.
+
+    Args:
+        S (List[int]): Une solution.
+        nP (int): Nombre de processeurs.
+        
+    Returns:
+        Sv: Solution voisine de S, ou une copie de S si aucun déplacement valide n'existe.
+    """
+    nT = len(S)
+    mouvements = []
+
+    for tache, processeur_actuel in enumerate(S):
+        for processeur in range(nP):
+            if processeur == processeur_actuel:
+                continue
+
+            Sv = S.copy()
+            Sv[tache] = processeur
+            if realizable_solution(nT, Sv):
+                mouvements.append((tache, processeur))
+
+    if not mouvements:
+        return S.copy()
+
+    tache, processeur = random.choice(mouvements)
+    Sv = S.copy()
+    Sv[tache] = processeur
+    return Sv
+
+def voisin_swap(S):
+    """Échange les processeurs de deux tâches affectées différemment.
+
+    Args:
+        S (List[int]): Une solution.
+    
+    Returns:
+        Sv: Solution voisine de S.
+    """
+    Sv = S.copy()
+    nT = len(S)
+    paires = [
+        (i, j)
+        for i in range(nT)
+        for j in range(i + 1, nT)
+        if S[i] != S[j]
+    ]
+
+    if not paires:
+        return Sv
+
+    i, j = random.choice(paires)
+    Sv[i], Sv[j] = Sv[j], Sv[i]
+    return Sv
