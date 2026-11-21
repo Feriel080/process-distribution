@@ -108,7 +108,7 @@ def voisin_move(S, nP):
     Sv[tache] = processeur
     return Sv
 
-def voisin_swap(S):
+def voisin_swap(S, nP):
     """Échange les processeurs de deux tâches affectées différemment.
 
     Args:

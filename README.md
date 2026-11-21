@@ -1,46 +1,58 @@
-# process-distribution
+# Répartition de tâches sur processeurs
 
-3 processeurs.
+Ce projet étudie l'affectation de tâches à des processeurs indépendants afin de
+minimiser la durée totale d'exécution.
 
-execution des programmes.
+## Modèle
 
-optimization des taches selon les processus.
+- `nP` : nombre de processeurs.
+- `nT` : nombre de tâches.
+- `D[p][t]` : durée d'exécution de la tâche `t` sur le processeur `p`.
+- `S[t]` : indice du processeur affecté à la tâche `t` (`0` à `nP - 1`).
 
-ordonnancement multi-processeur.
+Chaque tâche est affectée à un seul processeur. Un processeur peut ne recevoir
+aucune tâche.
 
-une machine acev plusieurs processeur.  de p1 au pN.
+La charge du processeur `p` est la somme des durées des tâches qui lui sont
+affectées :
 
-et plusieurs taches.
+```text
+C[p] = sum(D[p][t] for t where S[t] == p)
+```
 
-chaque processeur est independant d'autre processeur.
+La fonction objectif minimise le makespan, c'est-à-dire la charge maximale :
 
-probleme d'ordonnoncement.: ex: p1 = t1, p2 = t3, p3 = t2
+```text
+Cmax = max(C[p] for p in range(nP))
+```
 
-solution: vecteur d'affectation.
+Le nombre d'affectations possibles est `nP ** nT`.
 
-Ti,j: temp de processeur i pour faire la tache j.
+## Algorithmes et fichiers
 
-fonction objectif: minimiser le temp d'execution. -> avoir le min calendrier des taches.
+- `helping_func.py` contient la génération d'instances et de solutions, le
+  calcul du makespan, ainsi que les opérateurs de voisinage :
+  - **move** : réaffecter une tâche à un autre processeur ;
+  - **swap** : échanger les processeurs de deux tâches.
+- `simulated_annealing.py` implémente le recuit simulé.
+- `tabu_search.py` implémente la recherche tabou.
+- `testing_sa.py` et `testing_ts.py` contiennent des scripts d'expérimentation.
 
-contrainte: la tache doit être executer dans un seul processeur.
+Le recuit simulé et la recherche tabou sont des métaheuristiques : ils
+explorent l'espace des affectations, mais ne garantissent pas de trouver
+l'optimum global.
 
-taille d'espace de rechrche:
+## Installation et exécution
 
-n: nombre de taches, m: nombre de processeurs. Alors; m ^ n affectation possible.
+Installez les dépendances depuis la racine du projet :
 
-variable de decision: matrices tel que : les lignes sont les processeurs, les colonnes sont les taches, et la valeur et binaire 0 si processeur n'execute pas la tache, 1 sinon.
+```bash
+python -m pip install -r requirements.txt
+```
 
-rechrche tabu ne garanti pas de trouver le minimum global.
+Lancez les scripts d'expérimentation depuis cette même racine :
 
-recuit simulé garanti en cas de choisir les bonnes parametre.
-
-
-
-# 2eme presentaiton
-
-peut etre un vecteur: taille = nombre de taches. , les valeurs sont des entiers tq, l'entier represente le nombre de processeur.
-
-
-# Dans la rechrche Tabou
-
-swap:
+```bash
+python testing_sa.py
+python testing_ts.py
+```
