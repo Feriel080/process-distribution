@@ -1,0 +1,298 @@
+{
+  "processors": 4,
+  "tasks": 8,
+  "execution_times": [
+    [
+      6,
+      9,
+      4,
+      7,
+      8,
+      5,
+      10,
+      3
+    ],
+    [
+      8,
+      5,
+      7,
+      4,
+      6,
+      9,
+      6,
+      7
+    ],
+    [
+      5,
+      8,
+      6,
+      9,
+      3,
+      7,
+      8,
+      4
+    ],
+    [
+      9,
+      6,
+      5,
+      5,
+      7,
+      4,
+      7,
+      6
+    ]
+  ],
+  "runs": [
+    {
+      "run": 1,
+      "initial_solution": [
+        2,
+        3,
+        0,
+        3,
+        2,
+        3,
+        1,
+        2
+      ],
+      "best_solution": [
+        2,
+        3,
+        0,
+        0,
+        2,
+        3,
+        1,
+        2
+      ],
+      "best_cost": 12.0,
+      "moves": 23
+    },
+    {
+      "run": 2,
+      "initial_solution": [
+        2,
+        3,
+        0,
+        3,
+        2,
+        3,
+        1,
+        2
+      ],
+      "best_solution": [
+        2,
+        3,
+        0,
+        1,
+        2,
+        3,
+        1,
+        2
+      ],
+      "best_cost": 12.0,
+      "moves": 27
+    },
+    {
+      "run": 3,
+      "initial_solution": [
+        2,
+        3,
+        0,
+        3,
+        2,
+        3,
+        1,
+        2
+      ],
+      "best_solution": [
+        2,
+        3,
+        0,
+        3,
+        2,
+        0,
+        1,
+        2
+      ],
+      "best_cost": 12.0,
+      "moves": 26
+    },
+    {
+      "run": 4,
+      "initial_solution": [
+        2,
+        3,
+        0,
+        3,
+        2,
+        3,
+        1,
+        2
+      ],
+      "best_solution": [
+        2,
+        1,
+        0,
+        3,
+        2,
+        3,
+        1,
+        2
+      ],
+      "best_cost": 12.0,
+      "moves": 22
+    },
+    {
+      "run": 5,
+      "initial_solution": [
+        2,
+        3,
+        0,
+        3,
+        2,
+        3,
+        1,
+        2
+      ],
+      "best_solution": [
+        2,
+        3,
+        0,
+        0,
+        2,
+        3,
+        1,
+        2
+      ],
+      "best_cost": 12.0,
+      "moves": 28
+    },
+    {
+      "run": 6,
+      "initial_solution": [
+        2,
+        3,
+        0,
+        3,
+        2,
+        3,
+        1,
+        2
+      ],
+      "best_solution": [
+        2,
+        3,
+        0,
+        0,
+        2,
+        3,
+        1,
+        2
+      ],
+      "best_cost": 12.0,
+      "moves": 32
+    },
+    {
+      "run": 7,
+      "initial_solution": [
+        2,
+        3,
+        0,
+        3,
+        2,
+        3,
+        1,
+        2
+      ],
+      "best_solution": [
+        2,
+        3,
+        0,
+        3,
+        2,
+        3,
+        1,
+        2
+      ],
+      "best_cost": 15.0,
+      "moves": 20
+    },
+    {
+      "run": 8,
+      "initial_solution": [
+        2,
+        3,
+        0,
+        3,
+        2,
+        3,
+        1,
+        2
+      ],
+      "best_solution": [
+        2,
+        3,
+        0,
+        0,
+        2,
+        3,
+        1,
+        2
+      ],
+      "best_cost": 12.0,
+      "moves": 28
+    },
+    {
+      "run": 9,
+      "initial_solution": [
+        2,
+        3,
+        0,
+        3,
+        2,
+        3,
+        1,
+        2
+      ],
+      "best_solution": [
+        2,
+        3,
+        0,
+        0,
+        2,
+        3,
+        1,
+        2
+      ],
+      "best_cost": 12.0,
+      "moves": 22
+    },
+    {
+      "run": 10,
+      "initial_solution": [
+        2,
+        3,
+        0,
+        3,
+        2,
+        3,
+        1,
+        2
+      ],
+      "best_solution": [
+        2,
+        3,
+        0,
+        3,
+        2,
+        0,
+        1,
+        2
+      ],
+      "best_cost": 12.0,
+      "moves": 21
+    }
+  ]
+}
