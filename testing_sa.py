@@ -10,10 +10,10 @@ D = np.array([[6, 9, 4, 7, 8, 5, 10, 3],
               [9, 6, 5, 5, 7, 4, 7, 6]])
 nP, nT = 4, 8
 results = []
-# S = [2, 3, 0, 3, 2, 3, 1, 2]
+S = [2, 0, 1, 2, 3, 3, 3, 1]
 
 for r in range(runs):
-    S = solution_initiale(nP, nT)
+    # S = solution_initiale(nP, nT)
     SA = SimulatedAnnealing(charge_processeurs, voisin_move, initial_sol=S,
                             T_min=1e-3, alpha=0.99, L=nT, n_stab=20, r=0.9)
     SA.run(nP, D)
@@ -29,7 +29,6 @@ for r in range(runs):
     with open("instances/sa_results_solInitFixe.json", "w") as f:
         json.dump({"processors": nP,
         "tasks": nT,
-        "execution_times": D.tolist(),
         "runs": results,
     }, f, indent=2)
         
